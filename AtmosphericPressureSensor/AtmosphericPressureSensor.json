@@ -1,0 +1,23 @@
+{
+  "hwinterface": "analog",
+  "address": 0,
+  "setup_commands": [],
+  "get_commands": [
+    {
+      "name": "GetAtmPressure",
+      "description": "atmospheric pressure measurement sensor",
+      "type": "",
+      "value": "",
+      "response": "ConvertData.GetAtmPressure",
+      "data": [
+        {
+          "name": "atm_pressure",
+          "description": "atmospheric pressure 15 - 102 kPa",
+          "type": "float",
+          "units": "kPa"
+        }
+      ]
+    }
+  ],
+  "set_commands": []
+}

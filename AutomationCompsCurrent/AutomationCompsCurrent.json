@@ -1,0 +1,23 @@
+{
+  "hwinterface": "analog",
+  "address": 0,
+  "setup_commands": [],
+  "get_commands": [
+    {
+      "name": "GetCurrent",
+      "description": "current measurement using clamp",
+      "type": "",
+      "value": "",
+      "response": "ConvertData.GetCurrent",
+      "data": [
+        {
+          "name": "current",
+          "description": "current consumption in amps",
+          "type": "float",
+          "units": "amps"
+        }
+      ]
+    }
+  ],
+  "set_commands": []
+}

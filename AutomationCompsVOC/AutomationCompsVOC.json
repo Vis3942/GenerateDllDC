@@ -1,0 +1,23 @@
+{
+  "hwinterface": "analog",
+  "address": 0,
+  "setup_commands": [],
+  "get_commands": [
+    {
+      "name": "GetVolatileOrgCompounds",
+      "description": "volatile organic compounds sensor",
+      "type": "",
+      "value": "",
+      "response": "ConvertData.GetVolatileOrgCompounds",
+      "data": [
+        {
+          "name": "voc",
+          "description": "measurement of VOC",
+          "type": "float",
+          "units": "ppb"
+        }
+      ]
+    }
+  ],
+  "set_commands": []
+}

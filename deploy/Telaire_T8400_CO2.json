@@ -1,0 +1,23 @@
+{
+  "hwinterface": "analog",
+  "address": 0,
+  "setup_commands": [],
+  "get_commands": [
+    {
+      "name": "GetCO2Count",
+      "description": "co2 measurement sensor",
+      "type": "",
+      "value": "",
+      "response": "ConvertData.GetCO2Count",
+      "data": [
+        {
+          "name": "co2_count",
+          "description": "co2 presence in ppm 0 to 5000",
+          "type": "float",
+          "units": "ppm"
+        }
+      ]
+    }
+  ],
+  "set_commands": []
+}

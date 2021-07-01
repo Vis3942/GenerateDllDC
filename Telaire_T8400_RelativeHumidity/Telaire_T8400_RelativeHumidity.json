@@ -1,0 +1,23 @@
+{
+  "hwinterface": "analog",
+  "address": 0,
+  "setup_commands": [],
+  "get_commands": [
+    {
+      "name": "GetRelativeHumidityPC",
+      "description": "relative humidity in percent",
+      "type": "",
+      "value": "",
+      "response": "ConvertData.GetRelativeHumidityPC",
+      "data": [
+        {
+          "name": "rel_humidity",
+          "description": "relative humidity in percentage",
+          "type": "float",
+          "units": "pc"
+        }
+      ]
+    }
+  ],
+  "set_commands": []
+}

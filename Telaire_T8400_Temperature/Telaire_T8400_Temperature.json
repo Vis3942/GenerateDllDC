@@ -1,0 +1,23 @@
+{
+  "hwinterface": "analog",
+  "address": 0,
+  "setup_commands": [],
+  "get_commands": [
+    {
+      "name": "GetTemperature",
+      "description": "air temperature in degrees Fahrenheit",
+      "type": "",
+      "value": "",
+      "response": "ConvertData.GetTemperature",
+      "data": [
+        {
+          "name": "air_temperature",
+          "description": "air temperature",
+          "type": "float",
+          "units": "degrees Fahrenheit"
+        }
+      ]
+    }
+  ],
+  "set_commands": []
+}

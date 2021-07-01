@@ -1,0 +1,23 @@
+{
+  "hwinterface": "i2c",
+  "address": 72,
+  "setup_commands": [],
+  "get_commands": [
+    {
+      "name": "GetBoardTemperature",
+      "description": "temperature sensor on i2c bus",
+      "type": "byte",
+      "value": "0x00",
+      "response": "ConvertData.GetBoardTemperature",
+      "data": [
+        {
+          "name": "amb_temp_f",
+          "description": "board mount sensor",
+          "type": "float",
+          "units": "degrees Fahrenheit"
+        }
+      ]
+    }
+  ],
+  "set_commands": []
+}

@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutomationCompsInchesOfWater\AutomationCompsDifferentialPressure.csproj" />
+    <ProjectReference Include="..\ComputedAhDpHi\ComputedAhDpHi.csproj" />
+    <ProjectReference Include="..\OptySecUVIntensity\OptySecUVIntensity.csproj" />
+    <ProjectReference Include="..\PowerMeasurement\PowerMeasurement.csproj" />
+    <ProjectReference Include="..\ResponseOneWeatherTransmitter\ResponseOneWeatherTransmitter.csproj" />
+    <ProjectReference Include="..\Seimens_QSM2100_PM2_5\Seimens_QSM2100_PM2_5.csproj" />
+    <ProjectReference Include="..\SM_UART_04L\SM_UART_04L.csproj" />
+    <ProjectReference Include="..\UtilsLibrary\UtilsLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="NCx_EB443D.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
