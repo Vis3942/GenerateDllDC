@@ -1,0 +1,114 @@
+{
+  "hwinterface": "iaq",
+  "address": 0,
+  "setup_commands": [],
+  "get_commands": [
+    {
+      "name": "GetIAQData",
+      "description": "get IAQ measured data",
+      "type": "",
+      "value": "",
+      "response": "ConvertData.GetIAQData",
+      "data": [
+        {
+          "name": "pm1_0",
+          "description": "1.0 micrometer particulate size count in cubic meter",
+          "type": "float",
+          "units": "micro grams/ cubic meter"
+        },
+        {
+          "name": "pm2_5",
+          "description": "2.5 micrometer particulate size count in cubic meter",
+          "type": "float",
+          "units": "micro grams/ cubic meter"
+        },
+        {
+          "name": "pm4_0",
+          "description": "4.0 micrometer particulate size count in cubic meter",
+          "type": "float",
+          "units": "micro grams/ cubic meter"
+        },
+        {
+          "name": "pm10_0",
+          "description": "10.0 micrometer particulate size count in cubic meter",
+          "type": "float",
+          "units": "micro grams/ cubic meter"
+        },
+        {
+          "name": "pmn0_5",
+          "description": "0.5 micrometer particulate count in cubic meter",
+          "type": "float",
+          "units": "count / cubic meter"
+        },
+        {
+          "name": "pmn1_0",
+          "description": "1.0 micrometer particulate count in cubic meter",
+          "type": "float",
+          "units": "count/ cubic meter"
+        },
+        {
+          "name": "pmn2_5",
+          "description": "2.5 micrometer particulate count in cubic meter",
+          "type": "float",
+          "units": "count/ cubic meter"
+        },
+        {
+          "name": "pmn4_0",
+          "description": "4.0 micrometer particulate count in cubic meter",
+          "type": "float",
+          "units": "count/ cubic meter"
+        },
+        {
+          "name": "pmn10_0",
+          "description": "10.0 micrometer particulate count in cubic meter",
+          "type": "float",
+          "units": "count/ cubic meter"
+        },
+        {
+          "name": "avg_pm_size",
+          "description": "average particulate size in micrometer",
+          "type": "float",
+          "units": "micro meter"
+        },
+        {
+          "name": "relative_humidity_pc",
+          "description": "Relative Humidity percent",
+          "type": "float",
+          "units": "percent"
+        },
+        {
+          "name": "temperature",
+          "description": "temperatue at unit in deg Centrigrade",
+          "type": "float",
+          "units": "degrees Centigrade"
+        },
+        {
+          "name": "pressure",
+          "description": "pressure at unit",
+          "type": "float",
+          "units": "KPA"
+        },
+        {
+          "name": "co2",
+          "description": " CO2 count in ppm",
+          "type": "uint16",
+          "units": "ppm"
+        },
+        {
+          "name": "voc",
+          "description": " Volatile compounds count in ppm",
+          "type": "uint16",
+          "units": "ppm"
+        },
+        {
+          "name": "iaq_index",
+          "description": " Air quality index (computed)",
+          "type": "uint8",
+          "units": ""
+        }
+      ]
+    }
+  ],
+  "set_commands": [
+  ]
+}

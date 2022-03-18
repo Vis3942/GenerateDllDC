@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using UtilsLibrary;
 
 
@@ -7,113 +8,75 @@ namespace PowerMeasurement
 {
     public class ConvertData
     {
-        public static List<ResponseData> GetPowerData(byte[] msg_bytes)
+        public static List<ResponseData> GetPowerData(byte[] msg_bytes, int start_index, int length)
         {
-            int data_index = 6;
-            ushort data_id;
-            List<ResponseData> to_ret_rd = new List<ResponseData>();
-            string dt_str = DateTime.Now.ToUniversalTime().ToString("MM/dd/yy HH:mm:ss") + " +00:00";
-            while (data_index < msg_bytes.Length)
+            if (length < 22) // 5 floats => 4*5 bytes + 2  uint8's => 2 bytes
             {
-                data_id = BitConverter.ToUInt16(msg_bytes, data_index);
-                data_index += 2;
-                switch (data_id)
-                {
-                case (ushort)0x8001: // onoff
-                    ResponseData rd1 = new ResponseData();
-                    rd1.Name = "OnOff";
-                    if (msg_bytes[data_index] == 0)
-                    {
-                        rd1.Value = "0";
-                    }
-                    else
-                    {
-                        rd1.Value = "1";
-                    }
-                    rd1.Timestamp = dt_str;
-                    to_ret_rd.Add(rd1); 
-                    data_index += 1;
-                    break;
-                case (ushort)0x8002: // intensity
-                    ResponseData rd2 = new ResponseData();
-                    rd2.Name = "Brightness";
-                    rd2.Value = ((ushort)BitConverter.ToUInt16(msg_bytes, data_index)).ToString();
-                    rd2.Timestamp = dt_str;
-                    to_ret_rd.Add(rd2); 
-                    data_index += 2;
-                    break;
-                case (ushort)0x0004: // active power
-                    ResponseData rd3 = new ResponseData();
-                    rd3.Name = "ActivePower";
-                    rd3.Value = ((float)BitConverter.ToSingle(msg_bytes, data_index)).ToString("F");
-                    rd3.Timestamp = dt_str;
-                    to_ret_rd.Add(rd3); 
-                    data_index += 4;
-                    break;
-                case (ushort)0x0005: //reactive power
-                    data_index += 4;
-                    break;
-                case (ushort)0x0006: // voltage
-                    ResponseData rd5 = new ResponseData();
-                    rd5.Name = "Voltage";
-                    rd5.Value = ((float)BitConverter.ToSingle(msg_bytes, data_index)).ToString("F");
-                    rd5.Timestamp = dt_str;
-                    to_ret_rd.Add(rd5); 
-                    data_index += 4;
-                    break;
-                case (ushort)0x0008: // line_freq
-                    ResponseData rd6 = new ResponseData();
-                    rd6.Name = "LineFrequency";
-                    rd6.Value = ((float)BitConverter.ToSingle(msg_bytes, data_index)).ToString("F");
-                    rd6.Timestamp = dt_str;
-                    to_ret_rd.Add(rd6); 
-                    data_index += 4;
-                    break;
-                case (ushort)0x0009: // power fac
-                    //ResponseData rd7 = new ResponseData();
-                    //rd7.Name = "PowerFactor";
-                    //rd7.Value = ((float)BitConverter.ToSingle(msg_bytes, data_index)).ToString("F");
-                    //rd7.Timestamp = dt_str;
-                    //to_ret_rd.Add(rd7); 
-                    data_index += 4;
-                    break;
-                case (ushort)0x000a: // apparent power
-                    data_index += 4;
-                    break;
-                case (ushort)0x0012: // current
-                    ResponseData rd9 = new ResponseData();
-                    rd9.Name = "Current";
-                    rd9.Value = ((float)BitConverter.ToSingle(msg_bytes, data_index)).ToString("F");
-                    rd9.Timestamp = dt_str;
-                    to_ret_rd.Add(rd9); 
-                    data_index += 4;
-                    break;
-                case (ushort)0x0010: // time
-                    data_index += 12;
-                    break;
-                case (ushort)0x8011: // report interval
-                    data_index += 4;
-                    break;
-                case (ushort)0x8013: // digital onoff
-                    data_index += 1;
-                    break;
-                case (ushort)0x0016: // async msg count
-                    data_index += 1;
-                    break;
-                case (ushort)0x0017: // lqi
-                    data_index += 2;
-                    break;
-                case (ushort)0x8018: // zone id
-                    data_index += 1;
-                    break;
-                case (ushort)0x0015: // reset count
-                    data_index += 5;
-                    break;
-                }
+                return null;
             }
-            if (to_ret_rd.Count > 0)
+
+            List<ResponseData> ret_listrd = new List<ResponseData>();
+            string dt_str = DateTime.Now.ToUniversalTime().ToString("MM/dd/yy HH:mm:ss") + " +00:00";
+            float res = BitConverter.ToSingle(msg_bytes, start_index);
+            ResponseData rd = new ResponseData();
+            rd.Name = "Voltage";
+            rd.Value = res.ToString("F", CultureInfo.InvariantCulture);
+            rd.Timestamp = dt_str;
+            rd.EventId = "";
+            ret_listrd.Add(rd);
+
+            float res2 = BitConverter.ToSingle(msg_bytes, start_index+4);
+            ResponseData rd2 = new ResponseData();
+            rd2.Name = "Current";
+            rd2.Value = res2.ToString("F", CultureInfo.InvariantCulture);
+            rd2.Timestamp = dt_str;
+            rd2.EventId = "";
+            ret_listrd.Add(rd2);
+
+            float res3 = BitConverter.ToSingle(msg_bytes, start_index+8);
+            ResponseData rd3 = new ResponseData();
+            rd3.Name = "PowerFactor";
+            rd3.Value = res3.ToString("F", CultureInfo.InvariantCulture);
+            rd3.Timestamp = dt_str;
+            rd3.EventId = "";
+            ret_listrd.Add(rd3);
+
+            float res4 = BitConverter.ToSingle(msg_bytes, start_index+12);
+            ResponseData rd4 = new ResponseData();
+            rd4.Name = "LineFrequency";
+            rd4.Value = res4.ToString("F", CultureInfo.InvariantCulture);
+            rd4.Timestamp = dt_str;
+            rd4.EventId = "";
+            ret_listrd.Add(rd4);
+
+            float res5 = BitConverter.ToSingle(msg_bytes, start_index + 16);
+            ResponseData rd5 = new ResponseData();
+            rd5.Name = "ActivePower";
+            rd5.Value = res5.ToString("F", CultureInfo.InvariantCulture);
+            rd5.Timestamp = dt_str;
+            rd5.EventId = "";
+            ret_listrd.Add(rd5);
+
+            byte bval = msg_bytes[start_index + 20];
+            ResponseData rd6 = new ResponseData();
+            rd6.Name = "OnOff";
+            rd6.Value = bval.ToString("D", CultureInfo.InvariantCulture);
+            rd6.Timestamp = dt_str;
+            rd6.EventId = "";
+            ret_listrd.Add(rd6);
+
+            byte bval2 = msg_bytes[start_index + 20];
+            ResponseData rd7 = new ResponseData();
+            rd7.Name = "Brightness";
+            rd7.Value = bval2.ToString("D", CultureInfo.InvariantCulture);
+            rd7.Timestamp = dt_str;
+            rd7.EventId = "";
+            ret_listrd.Add(rd7);
+
+
+            if (ret_listrd.Count > 0)
             {
-                return to_ret_rd;
+                return ret_listrd;
             }
             else
             {

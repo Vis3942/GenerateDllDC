@@ -41,6 +41,12 @@
           "units": "mA"
         },
         {
+          "name": "PowerFactor",
+          "description": "",
+          "type": "float",
+          "units": ""
+        },
+        {
           "name": "LineFrequency",
           "description": "",
           "type": "float",

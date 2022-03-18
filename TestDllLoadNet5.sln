@@ -39,7 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomationCompsCurrent", "A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DS7505TemperatureSensor", "DS7505TemperatureSensor\DS7505TemperatureSensor.csproj", "{A0FB77A0-FA1E-4D95-9ECF-9DCFFF8419C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenAdminPasswordHashFile", "GenAdminPasswordHashFile\GenAdminPasswordHashFile.csproj", "{B01509D8-414B-42A3-B25D-175B8B26854C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenAdminPasswordHashFile", "GenAdminPasswordHashFile\GenAdminPasswordHashFile.csproj", "{B01509D8-414B-42A3-B25D-175B8B26854C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAQMeasurement", "IAQMeasurement\IAQMeasurement.csproj", "{D9903DC1-61ED-4A93-A7C6-AD08307FA139}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,10 @@ Global
 		{B01509D8-414B-42A3-B25D-175B8B26854C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B01509D8-414B-42A3-B25D-175B8B26854C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B01509D8-414B-42A3-B25D-175B8B26854C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9903DC1-61ED-4A93-A7C6-AD08307FA139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9903DC1-61ED-4A93-A7C6-AD08307FA139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9903DC1-61ED-4A93-A7C6-AD08307FA139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9903DC1-61ED-4A93-A7C6-AD08307FA139}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
