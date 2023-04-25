@@ -17,6 +17,8 @@ namespace TestDllLoadNet5
             string device4 = "Seimens_QSM2100_PM2_5";
             string device5 = "AutomationCompsDifferentialPressure";
             string device6 = "OptySecUVIntensity";
+            string device7 = "ConductivitySensorCompany1";
+            string device8 = "DissolvedOxygenSensorCompany1";
             string json_fname = "";
             MethodInfo jsonCalcMethod1 = null;
             MethodInfo jsonCalcMethod2 = null;
@@ -24,6 +26,83 @@ namespace TestDllLoadNet5
             MethodInfo jsonCalcMethod4 = null;
             MethodInfo jsonCalcMethod5 = null;
             MethodInfo jsonCalcMethod6 = null;
+            MethodInfo jsonCalcMethod7 = null;
+            MethodInfo jsonCalcMethod8 = null;
+
+            if ((device8 != null) && (device8.Length > 0))
+            {
+                json_fname = $"{device8}.json";
+                if (System.IO.File.Exists(json_fname))
+                {
+                    string json_str = System.IO.File.ReadAllText(json_fname);
+                    JsonCommands dev_json = JsonSerializer.Deserialize<JsonCommands>(json_str);
+                    foreach (JsonCommand jc in dev_json.get_commands)
+                    {
+                        if (jc.response.Length > 0)
+                        {
+                            jc.compute_values = JsonUtils.LoadMethodFromAssembly(null, device8, jc.response);
+                            if ("Get Dissolved Oxygen".Equals(jc.name))
+                            {
+                                jsonCalcMethod8 = jc.compute_values;
+                            }
+                        }
+                    }
+                }
+                if (jsonCalcMethod8 != null)
+                {
+                    // generate resp
+                    // 2: len of bytes inclusive of this one, 2: unique packet identifier, remainder of packet data
+                    byte[] data_resp2 = new byte[] {
+                            0x17, 0x00, 0x1A, 0x00, 0x01, 0x00, 0x01, 0x04,
+                            0x00, 0x0D, 0x04, 0x03, 0x08, 0x02, 0xCE, 0x00,
+                            0x02, 0x00, 0xED, 0x00, 0x01, 0x02, 0x3B
+                    };
+                    List<ResponseData> res_rd2 = (List<ResponseData>)jsonCalcMethod8.Invoke(null, new object[] { data_resp2, 10, 13 });
+                    Console.WriteLine(string.Format("Computed value dissolved oxy = {0}", DisplayRDValuues(res_rd2)));
+                    //string json_str = JsonConvert.SerializeObject(res_rd2);
+                    //dcps.WriteToPipe(json_str);
+                    Console.WriteLine("              ------              ");
+                }
+            }
+
+
+            if ((device7 != null) && (device7.Length > 0))
+            {
+                json_fname = $"{device7}.json";
+                if (System.IO.File.Exists(json_fname))
+                {
+                    string json_str = System.IO.File.ReadAllText(json_fname);
+                    JsonCommands dev_json = JsonSerializer.Deserialize<JsonCommands>(json_str);
+                    foreach (JsonCommand jc in dev_json.get_commands)
+                    {
+                        if (jc.response.Length > 0)
+                        {
+                            jc.compute_values = JsonUtils.LoadMethodFromAssembly(null, device7, jc.response);
+                            if ("Get Conductivity".Equals(jc.name))
+                            {
+                                jsonCalcMethod7 = jc.compute_values;
+                            }
+                        }
+                    }
+                }
+                if (jsonCalcMethod7 != null)
+                {
+                    // generate resp
+                    // 2: len of bytes inclusive of this one, 2: unique packet identifier, remainder of packet data
+                    byte[] data_resp2 = new byte[] {
+                            0x06, 0x03, 0x08, 0x01,
+                            0x02, 0x00, 0x00,
+                            0x00, 0xB0, 0x00, 0x01, 0xAD, 0x88
+                        };
+                    List<ResponseData> res_rd2 = (List<ResponseData>)jsonCalcMethod7.Invoke(null, new object[] { data_resp2, 0, 13 });
+                    Console.WriteLine(string.Format("Computed value conductivity = {0}", DisplayRDValuues(res_rd2)));
+                    //string json_str = JsonConvert.SerializeObject(res_rd2);
+                    //dcps.WriteToPipe(json_str);
+                    Console.WriteLine("              ------              ");
+                }
+            }
+
+
             if ( (device3 != null)&& (device3.Length > 0) )
             {
                 json_fname = $"{device3}.json";
@@ -239,6 +318,8 @@ namespace TestDllLoadNet5
                     Console.WriteLine("              ------              ");
                 }
             }
+
+
 
             Console.ReadLine();
 

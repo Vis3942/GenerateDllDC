@@ -1,0 +1,29 @@
+{
+  "hwinterface": "rs485",
+  "address": 4,
+  "setup_commands": [
+  ],
+  "get_commands": [
+    {
+      "name": "Get Conductivity",
+      "description": "Get conductivity (mS/cmd) and temperature (deg)",
+      "type": "byte",
+      "value": "0x04,0x03,0x00,0x00,0x00,0x04,0x44,0x5C",
+      "response": "ConvertData.Get_Conductivity_Data",
+      "data": [
+        {
+          "name": "conductivity",
+          "description": "conductivity",
+          "type": "float",
+          "units": "mS/cm"
+        },
+        {
+          "name": "temperature_c",
+          "description": "temperature",
+          "type": "float",
+          "units": "degC"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "hwinterface": "rs485",
+  "address": 6,
+  "setup_commands": [
+  ],
+  "get_commands": [
+    {
+      "name": "Get Dissolved Oxygen",
+      "description": "Get dissolved oxygen (mg/L) and temperature (deg)",
+      "type": "byte",
+      "value": "0x06,0x03,0x00,0x00,0x00,0x04,0x45,0xBE",
+      "response": "ConvertData.Get_Dissovled_Oxygen_Data",
+      "data": [
+        {
+          "name": "dis_oxy",
+          "description": "dissolved oxygen",
+          "type": "float",
+          "units": "mg/L"
+        },
+        {
+          "name": "temperature_do",
+          "description": "temperature",
+          "type": "float",
+          "units": "degC"
+        }
+      ]
+    }
+  ]
+}

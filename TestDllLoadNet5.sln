@@ -41,7 +41,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DS7505TemperatureSensor", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenAdminPasswordHashFile", "GenAdminPasswordHashFile\GenAdminPasswordHashFile.csproj", "{B01509D8-414B-42A3-B25D-175B8B26854C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAQMeasurement", "IAQMeasurement\IAQMeasurement.csproj", "{D9903DC1-61ED-4A93-A7C6-AD08307FA139}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IAQMeasurement", "IAQMeasurement\IAQMeasurement.csproj", "{D9903DC1-61ED-4A93-A7C6-AD08307FA139}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConductivitySensorCompany1", "ConductivitySensorCompany1\ConductivitySensorCompany1.csproj", "{2313F97D-0D81-49E8-847C-77ED8D601F67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DissolvedOxygenSensorCompany1", "DissolvedOxygenSensorCompany1\DissolvedOxygenSensorCompany1.csproj", "{35991AED-91A2-4EE7-9631-FE80EF940ECF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +133,14 @@ Global
 		{D9903DC1-61ED-4A93-A7C6-AD08307FA139}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9903DC1-61ED-4A93-A7C6-AD08307FA139}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9903DC1-61ED-4A93-A7C6-AD08307FA139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2313F97D-0D81-49E8-847C-77ED8D601F67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2313F97D-0D81-49E8-847C-77ED8D601F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2313F97D-0D81-49E8-847C-77ED8D601F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2313F97D-0D81-49E8-847C-77ED8D601F67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35991AED-91A2-4EE7-9631-FE80EF940ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35991AED-91A2-4EE7-9631-FE80EF940ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35991AED-91A2-4EE7-9631-FE80EF940ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35991AED-91A2-4EE7-9631-FE80EF940ECF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

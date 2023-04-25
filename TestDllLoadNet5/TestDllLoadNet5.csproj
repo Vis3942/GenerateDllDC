@@ -8,6 +8,8 @@
   <ItemGroup>
     <ProjectReference Include="..\AutomationCompsInchesOfWater\AutomationCompsDifferentialPressure.csproj" />
     <ProjectReference Include="..\ComputedAhDpHi\ComputedAhDpHi.csproj" />
+    <ProjectReference Include="..\ConductivitySensorCompany1\ConductivitySensorCompany1.csproj" />
+    <ProjectReference Include="..\DissolvedOxygenSensorCompany1\DissolvedOxygenSensorCompany1.csproj" />
     <ProjectReference Include="..\OptySecUVIntensity\OptySecUVIntensity.csproj" />
     <ProjectReference Include="..\PowerMeasurement\PowerMeasurement.csproj" />
     <ProjectReference Include="..\ResponseOneWeatherTransmitter\ResponseOneWeatherTransmitter.csproj" />
