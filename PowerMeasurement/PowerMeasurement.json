@@ -29,6 +29,12 @@
           "units": "VA"
         },
         {
+          "name": "ReactivePower",
+          "description": "",
+          "type": "float",
+          "units": "VAR"
+        },
+        {
           "name": "Voltage",
           "description": "",
           "type": "float",
